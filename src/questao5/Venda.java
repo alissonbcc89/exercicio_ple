@@ -9,17 +9,18 @@ public class Venda {
 	
 	private String atendente;
 	
-	ArrayList<ItemVenda> itens = new ArrayList<ItemVenda>();
+	private ArrayList<ItemVenda> itens = new ArrayList<ItemVenda>();
+	
+	private Cliente cliente;
 	
 	
+	public Venda(LocalDateTime data, String atendente, ArrayList<ItemVenda> itens) {
+		
+		this.data = data;
+		this.atendente = atendente;
+		this.itens = itens;
+	}
 
-	
-	
-	
-	
-	
-	
-	
 	public LocalDateTime getData() {
 		return data;
 	}
@@ -36,6 +37,24 @@ public class Venda {
 		this.atendente = atendente;
 	}
 	
+	
+	
+	public ArrayList<ItemVenda> getItens() {
+		return itens;
+	}
+
+	public void setItens(ArrayList<ItemVenda> itens) {
+		this.itens = itens;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
 	public double calcularTotal(ArrayList<ItemVenda> soma) {
 		
 		double aux = 0.0;
@@ -62,6 +81,17 @@ public class Venda {
 	
 
 	
-	public void listarItensVenda() {}
+	public void listarItensVenda() {
+		
+		System.out.printf("Data da Venda:", data, "/nCliente:"+ this.cliente +" | CPF:" + this.cliente.getCpf()+" | Idade:"+ this.cliente.calcularIdade() + "\nAtendente:" + this.atendente);
+		
+		System.out.println("Nome do Produto |   Preço   |  Quantidade |   Total");
+		System.out.println("-----------------------------------------------------");
+		for (int i = 0; i < this.itens.size(); i++) {
+			System.out.print(itens.get(i).getProduto().getNome()+" | "+ itens.get(i).getProduto().getPreco()+" | "+ " | " +  itens.get(i).getQuantidade() + " | " + itens.get(i).calcularTotal(itens.get(i).getProduto()));
+			
+		}
+		System.out.printf("Total da Venda: ", this.calcularTotal(this.getItens()));
+	}
 	
 }

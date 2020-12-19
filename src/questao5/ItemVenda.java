@@ -56,7 +56,7 @@ public class ItemVenda {
 
 	public double calcularTotal(Produto produto)
 	{
-		double total = produto.getPreco()* this.quantidade;
+		double total = this.produto.getPreco()* this.quantidade;
 		
 		
 		return total;
