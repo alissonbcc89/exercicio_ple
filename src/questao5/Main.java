@@ -2,7 +2,9 @@ package questao5;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Main {
@@ -30,12 +32,24 @@ public class Main {
 		//Date dataUsuario=sdf1.parse(21/06/89);
 		
 		LocalDate localData = LocalDate.of(1989, 3, 7);
-		LocalDate localDateNovo = LocalDate.of(2015, 3,5);
+		LocalDate dataAtual = LocalDate.now();
 		//String cpf, String nome, LocalDate dataNascimento, 
 		//DateTimeFormatter form = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	//	LocalDate entrada = form.parse(21/06/1989);
-		Cliente cliente = new Cliente("000-000-000-47","Alguém", localData );		
-
+		Cliente cliente = new Cliente("000-000-000-47","Alguém", localData );
+		
+		//LocalDateTime data, String atendente, ArrayList<ItemVenda> itens
+		Venda v = new Venda();
+		v.adicionarItem(iv1);
+		v.adicionarItem(iv2);
+		v.adicionarItem(iv3);
+		v.setAtendente("menina");
+		v.setCliente(cliente);
+		
+		v.listarItensVenda();
+		
+		
+		
 	}
 
 }
