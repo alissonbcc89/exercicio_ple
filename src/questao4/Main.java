@@ -111,6 +111,12 @@ public class Main {
 		System.out.println("Número de dias do ano: " + data.lengthOfYear());
 		System.out.println("Menor data: " + LocalDate.MIN);
 		System.out.println("Maior data: " + LocalDate.MAX);
+		
+		
+		
+		//Inicio desafio
+		
+		System.out.println("Digite uma data no formato dd/mm/aaaa");
 
 	}
 

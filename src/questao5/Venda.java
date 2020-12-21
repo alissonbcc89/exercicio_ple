@@ -1,12 +1,13 @@
 package questao5;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Venda {
 	
-	private LocalDateTime data;
-	
+	private Date data;
 	private String atendente;
 	
 	private ArrayList<ItemVenda> itens = new ArrayList<ItemVenda>();
@@ -14,20 +15,15 @@ public class Venda {
 	private Cliente cliente;
 	
 	public Venda() {}
-	public Venda(LocalDateTime data, String atendente, ArrayList<ItemVenda> itens) {
+	public Venda(String atendente, ArrayList<ItemVenda> itens) {
 		
-		this.data = data;
+
 		this.atendente = atendente;
 		this.itens = itens;
 	}
 
-	public LocalDateTime getData() {
-		return data;
-	}
+	
 
-	public void setData() {
-		this.data = data.now();
-	}
 
 	public String getAtendente() {
 		return atendente;
@@ -80,10 +76,11 @@ public class Venda {
 	}
 	
 
+	Date dataAtual = new Date();
 	
 	public void listarItensVenda() {
 		
-		System.out.printf("Data da Venda:", getData());
+		System.out.printf("Data da Venda:",dataAtual);
 		System.out.println( "\nCliente:"+ getCliente().getNome() +" | CPF:" + getCliente().getCpf()+" | Idade:"+ getCliente().calcularIdade() + "\nAtendente:" + getAtendente());
 		System.out.println("\nNome do Produto |   Preço   |  Quantidade |   Total");
 		System.out.println("-----------------------------------------------------");
@@ -91,6 +88,7 @@ public class Venda {
 			System.out.printf("\t" + itens.get(i).getProduto().getNome()+" |\t"+ itens.get(i).getProduto().getPreco()+" |\t"+ itens.get(i).getQuantidade()+"\t  |" + itens.get(i).calcularTotal(itens.get(i).getProduto())+"\n");
 			
 		}
+		System.out.println("-----------------------------------------------------");
 		System.out.printf("\nTotal da Venda: "+ calcularTotal(this.itens));
 	}
 	
